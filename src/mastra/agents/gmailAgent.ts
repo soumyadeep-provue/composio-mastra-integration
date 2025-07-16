@@ -156,7 +156,7 @@ The tools are loaded and ready - they just need Gmail authentication to access u
     
     // OAuth tool (always available and cached)
     const oauthTool = createTool({
-      id: 'initiate_gmail_oauth',
+      id: 'login_gmail',
       description: 'Initiates Gmail OAuth flow and returns the authorization URL. Use this to connect your Gmail account so the Gmail tools can access your data.',
       execute: async () => {
         const connectionResult = await gmailAuth.initiateConnection();
@@ -187,8 +187,8 @@ The tools are loaded and ready - they just need Gmail authentication to access u
     
     // Create MCP URL with or without authentication
     const url = connectedAccountId
-      ? `https://mcp.composio.dev/composio/server/45799b7f-fa65-474b-95ad-b66019896efe/mcp?connected_account_id=${connectedAccountId}`
-      : 'https://mcp.composio.dev/composio/server/45799b7f-fa65-474b-95ad-b66019896efe/mcp';
+      ? `https://mcp.composio.dev/composio/server/524a8d53-e118-46f8-abf0-f077f281469e/mcp?connected_account_id=${connectedAccountId}`
+      : 'https://mcp.composio.dev/composio/server/524a8d53-e118-46f8-abf0-f077f281469e/mcp';
 
     console.log(`🌐 MCP URL: ${url}`);
 
@@ -197,7 +197,7 @@ The tools are loaded and ready - they just need Gmail authentication to access u
 
     // Return combined tools
     return {
-      initiate_gmail_oauth: oauthTool,
+      login_gmail: oauthTool,
       ...allTools
     };
   },

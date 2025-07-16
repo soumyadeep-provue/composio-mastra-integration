@@ -6,7 +6,7 @@ const composio = new Composio({
 });
 
 // Gmail OAuth configuration
-const GMAIL_AUTH_CONFIG_ID = 'ac_u_MdLEvtemfj'; // Replace with your actual config ID
+const GMAIL_AUTH_CONFIG_ID = 'ac_-gUbKwT8Wh_-'; // Replace with your actual config ID
 
 /**
  * Handles Gmail authentication and connection management
