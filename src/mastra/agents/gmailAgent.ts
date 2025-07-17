@@ -5,8 +5,17 @@ import { MCPClient } from '@mastra/mcp';
 import { Composio } from '@composio/core';
 import { createTool } from '@mastra/core/tools';
 import { v4 as uuidv4 } from 'uuid';
+import dotenv from 'dotenv';
 
-// Initialize Composio client
+// Ensure environment variables are loaded
+dotenv.config();
+
+// Initialize Composio client with explicit error handling
+if (!process.env.COMPOSIO_API_KEY) {
+  console.error('COMPOSIO_API_KEY not found in environment variables');
+  console.error('Available env vars:', Object.keys(process.env).filter(key => key.includes('COMPOSIO')));
+}
+
 const composio = new Composio({
   apiKey: process.env.COMPOSIO_API_KEY,
 });
@@ -152,6 +161,7 @@ const getCachedTools = async (cacheKey: string, url: string, userId: string) => 
  */
 export const gmailMcpAgent = new Agent({
   name: 'Gmail MCP Agent',
+  description: 'A Gmail assistant that provides access to Gmail operations like reading emails, sending emails, searching emails, and managing labels. Handles authentication through Composio OAuth flow.',
   
   instructions: async ({ runtimeContext }: { runtimeContext?: any }) => {
     // Get userId from runtime context or generate UUID

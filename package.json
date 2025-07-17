@@ -6,7 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "mastra dev",
     "build": "mastra build",
-    "start": "mastra start"
+    "start": "mastra start",
+    "mcp-server": "tsx src/mastra/mcpServer.ts"
   },
   "keywords": [],
   "author": "",
@@ -23,9 +24,11 @@
     "@mastra/core": "^0.10.12",
     "@mastra/libsql": "^0.11.0",
     "@mastra/loggers": "^0.10.3",
+    "@mastra/mcp": "^0.10.5",
     "@mastra/memory": "^0.11.3",
     "@types/uuid": "^10.0.0",
     "composio-core": "^0.5.39",
+    "dotenv": "^16.4.5",
     "ngrok": "^5.0.0-beta.2",
     "openai": "^5.9.0",
     "uuid": "^11.1.0",
@@ -34,6 +37,7 @@
   "devDependencies": {
     "@types/node": "^24.0.13",
     "mastra": "^0.10.12",
+    "tsx": "^4.19.2",
     "typescript": "^5.8.3"
   }
 }
